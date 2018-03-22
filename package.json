@@ -2,9 +2,9 @@
   "name": "ng2-completer",
   "version": "2.0.5",
   "description": "ng2 autocomplete/typeahead component",
-  "main": "./dist/bundles/ng2-completer.umd.js",
-  "module": "./dist/esm5/ng2-completer.js",
-  "es2015": "./dist/esm2015/ng2-completer.js",
+  "main": "./dist/lib/bundles/ng2-completer.umd.js",
+  "module": "./dist/lib/esm5/ng2-completer.js",
+  "es2015": "./dist/lib/esm2015/ng2-completer.js",
   "scripts": {
     "build": "node build.js",
     "build:demo:dev": "cross-env webpack --progress --color",
