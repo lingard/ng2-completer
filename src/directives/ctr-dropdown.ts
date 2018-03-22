@@ -49,18 +49,7 @@ export class CtrDropdown implements CompleterDropdown, OnDestroy, AfterViewInit 
     }
 
     @HostListener("mousedown", ["$event"]) public onMouseDown(event: any) {
-        // Support for canceling blur on IE (issue #158)
-        if (!this._rowMouseDown) {
-            this.completer.cancelBlur(true);
-            setTimeout(
-                () => {
-                    this.completer.cancelBlur(false);
-                },
-                0
-            );
-        } else {
-            this._rowMouseDown = false;
-        }
+        this.completer.cancelBlur(true);
     }
 
     public registerRow(row: CtrRowItem) {

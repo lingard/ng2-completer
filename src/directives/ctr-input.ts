@@ -159,6 +159,7 @@ export class CtrInput {
                 },
                 0
             );
+
             return;
         }
 
