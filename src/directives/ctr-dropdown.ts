@@ -49,7 +49,17 @@ export class CtrDropdown implements CompleterDropdown, OnDestroy, AfterViewInit 
     }
 
     @HostListener("mousedown", ["$event"]) public onMouseDown(event: any) {
-        this.completer.cancelBlur(true);
+        if (this._rowMouseDown) {
+            this._rowMouseDown = false;
+
+            this.completer.cancelBlur(true);
+
+            setTimeout(() => {
+                this.completer.cancelBlur(false);
+            }, 0);
+
+            return;
+        }
     }
 
     public registerRow(row: CtrRowItem) {
