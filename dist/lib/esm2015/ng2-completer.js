@@ -690,7 +690,14 @@ class CtrDropdown {
      * @return {?}
      */
     onMouseDown(event) {
-        this.completer.cancelBlur(true);
+        if (this._rowMouseDown) {
+            this._rowMouseDown = false;
+            this.completer.cancelBlur(true);
+            setTimeout(() => {
+                this.completer.cancelBlur(false);
+            }, 0);
+            return;
+        }
     }
     /**
      * @param {?} row

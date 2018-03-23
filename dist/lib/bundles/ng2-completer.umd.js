@@ -903,7 +903,15 @@ var CtrDropdown = (function () {
      * @return {?}
      */
     function (event) {
-        this.completer.cancelBlur(true);
+        var _this = this;
+        if (this._rowMouseDown) {
+            this._rowMouseDown = false;
+            this.completer.cancelBlur(true);
+            setTimeout(function () {
+                _this.completer.cancelBlur(false);
+            }, 0);
+            return;
+        }
     };
     /**
      * @param {?} row
